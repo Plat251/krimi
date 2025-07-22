@@ -8,7 +8,7 @@
           <v-chip-group column>
             <v-chip
               small
-              color="blue lighten-4"
+              color="red lighten-4"
               v-for="(mean, index) in [...game.means].slice(
                 player.index * 4,
                 player.index * 4 + 4
@@ -20,7 +20,7 @@
           <v-chip-group column>
             <v-chip
               small
-              color="red lighten-4"
+              color="blue lighten-4"
               v-for="(mean, index) in [...game.clues].slice(
                 player.index * 4,
                 player.index * 4 + 4
