@@ -10,8 +10,8 @@
               small
               color="red lighten-4"
               v-for="(mean, index) in [...game.means].slice(
-                player.index * 4,
-                player.index * 4 + 4
+				  player.index * game.meansCluesPerPlayer,
+				  player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
               )"
               :key="index"
               >{{ mean }}</v-chip
@@ -22,8 +22,8 @@
               small
               color="blue lighten-4"
               v-for="(mean, index) in [...game.clues].slice(
-                player.index * 4,
-                player.index * 4 + 4
+				  player.index * game.meansCluesPerPlayer,
+				  player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
               )"
               :key="'clue' + index"
               >{{ mean }}</v-chip
