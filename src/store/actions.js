@@ -76,11 +76,11 @@ export default {
 	
     const gameMeans = rules.getRandom(
       gameclues[lang].means,
-      (payload.players.length - 1) * meansCluesPerPlayer,
+      payload.players.length * meansCluesPerPlayer,
     );
     const gameClues = rules.getRandom(
       gameclues[lang].clues,
-      (payload.players.length - 1) * meansCluesPerPlayer,
+      payload.players.length * meansCluesPerPlayer,
     );
     const analysisCause = gameclues[lang].analysis.filter(
       item => item.type === 0
