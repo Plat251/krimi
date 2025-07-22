@@ -97,8 +97,8 @@
                           @click="guess.mean = mean"
                           color="blue lighten-4"
                           v-for="(mean, index) in [...game.means].slice(
-                            selectedPlayer.index * 4,
-                            selectedPlayer.index * 4 + 4
+                            selectedPlayer.index * game.meansCluesPerPlayer,
+                            selectedPlayer.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
                           )"
                           :key="index"
                         >
@@ -121,8 +121,8 @@
                           @click="guess.key = clue"
                           color="red lighten-4"
                           v-for="(clue, index) in [...game.clues].slice(
-                            selectedPlayer.index * 4,
-                            selectedPlayer.index * 4 + 4
+                            selectedPlayer.index * game.meansCluesPerPlayer,
+                            selectedPlayer.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
                           )"
                           :key="index"
                         >
