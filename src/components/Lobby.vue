@@ -11,6 +11,11 @@
         <p class="subtitle-1 my-4">
           {{ t("Waiting for players") }}. {{ playerCount }}
         </p>
+		<p>
+		{{ t("Means and Clues per player") }}:
+		<input id="means_clues_per_player" type="number" class="float-right" placeholder="4" min="1" max="99" value="4" required
+		/>
+		</p>
         <v-progress-linear
           indeterminate
           absolute
@@ -102,6 +107,7 @@ export default {
       "player joined.": "jogador entrou.",
       "players joined.": "jogadores entraram.",
       "URL Copied": "URL Copiada",
+	  "Means and Clues per player": "Means and Clues per player",
       Close: "Fechar",
       "Copy game url": "Copiar url do jogo ",
       "Join game": "Entrar em um jogo",
@@ -113,6 +119,7 @@ export default {
       "No players joined yet.": "Поки ніхто не приєднався.",
       "player joined.": "гравець приєднався.",
       "players joined.": "гравців приєдналось.",
+	  "Means and Clues per player": "Знарядь та Доказів на гравця",
       "URL Copied": "URL скопійовано",
       Close: "Закрити",
       "Copy game url": "Скопіювати URL гри",
@@ -144,7 +151,10 @@ export default {
       else if (this.players.length === 1)
         return `${this.players.length} ${this.t("player joined.")}`;
       else return `${this.players.length} ${this.t("players joined.")}`;
-    }
+    },
+	meansCluesPerPlayer() {
+		return document.getElementById("means_clues_per_player").value;
+	}
   },
   methods: {
     changeDetective(evt) {
@@ -155,6 +165,7 @@ export default {
         game: this.game.gamekey,
         playersObj: this.game.players,
         players: this.players,
+		meansCluesPerPlayer: this.meansCluesPerPlayer,
         detective: this.active,
         lang: this.$translate.lang
       });
