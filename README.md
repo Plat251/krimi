@@ -1,4 +1,14 @@
 # Krimi: A Game of deduction and deception.
+## This fork
+
+This fork features Ukrainian translation for every game item, as well as UI text. I also updated the Vue configuration and router to support deploying on a non-root path via Vue env variables.
+
+To deploy on a non-root path, create a file named .env or .env local and add a BASE_PATH variable. For example:
+```
+BASE_URL=/my_path
+```
+
+## Original README
 
 ![Krimi](https://miro.medium.com/max/2000/1*pttcKSn12VD0Tpds2EIs0w.png)
 
