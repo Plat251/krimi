@@ -7,14 +7,14 @@
           <v-chip-group column>
             <v-chip
               small
-              color="blue lighten-4"
+              color="red lighten-4"
               style="opacity: 1"
               :class="{ 'v-chip--active': murdererChoice.mean === mean }"
               @click="murdererChoice.mean = mean"
               :disabled="!!game.murdererChoice"
               v-for="(mean, index) in [...game.means].slice(
-                player.index * 4,
-                player.index * 4 + 4
+				  player.index * game.meansCluesPerPlayer,
+				  player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
               )"
               :key="index"
             >
@@ -37,11 +37,11 @@
               style="opacity: 1"
               :class="{ 'v-chip--active': murdererChoice.key === clue }"
               @click="murdererChoice.key = clue"
-              color="red lighten-4"
+              color="blue lighten-4"
               :disabled="!!game.murdererChoice"
               v-for="(clue, index) in [...game.clues].slice(
-                player.index * 4,
-                player.index * 4 + 4
+				  player.index * game.meansCluesPerPlayer,
+				  player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
               )"
               :key="index"
             >
