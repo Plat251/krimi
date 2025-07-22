@@ -13,7 +13,7 @@
         </p>
 		<p>
 		{{ t("Means and Clues per player") }}:
-		<input id="means_clues_per_player" type="number" class="float-right" placeholder="4" min="1" max="99" value="4" required
+		<input id="means_clues_per_player" type="number" class="float-right" placeholder="4" min="1" max="10" value="4" required
 		/>
 		</p>
         <v-progress-linear
