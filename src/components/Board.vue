@@ -32,9 +32,9 @@
               }"
             >
               <span class="red--text" v-if="game.murderer === player.index"
-                >Murderer</span
+                >{{ t("Murderer") }}</span
               >
-              <span v-if="game.murderer !== player.index">Detective</span>
+              <span v-if="game.murderer !== player.index">{{ t("Detective") }}</span>
             </div>
             <v-card
               :style="{
@@ -91,8 +91,13 @@
             </v-card>
           </v-col>
           <v-col cols="12">
-            <div class="finished" v-if="game.finished">
-              The game is finshed. The {{ game.winner }} won!
+            <div v-if="game.finished">
+				<div class="finished" v-if="game.winner == 'murderer'">
+					{{ t("The game is finished. The murderer won!") }}
+				</div>
+				<div class="finished" v-if="game.winner == 'detectives'">
+					{{ t("The game is finished. The detectives won!") }}
+				</div>
             </div>
           </v-col>
         </v-row>
@@ -153,7 +158,11 @@ export default {
       Round: "Раунд",
       of: "",
       Analysis: "Аналіз",
-      "Forensic Scientist": "Судово-медичний експерт"
+      "Forensic Scientist": "Судово-медичний експерт",
+	  "Murderer": "Вбивця",
+	  "Detective": "Слідчий",
+	  "The game is finished. The murderer won!": "Гру завершено. Перемога за вбивцею!",
+	  "The game is finished. The detectives won!": "Гру завершено. Перемога слідчих!", 
     }
   },
   computed: {
