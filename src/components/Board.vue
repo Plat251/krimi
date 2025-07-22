@@ -44,13 +44,13 @@
               <v-card-text>
                 <div class="title">{{ player.name }}</div>
                 <div
-                  style="font-family:'Shadows Into Light'; font-size: 18px; font-weight:bold;"
+                  style="font-family:'Paddis Handwritten'; font-size: 18px; font-weight:bold;"
                   v-if="game.passedTurns && game.passedTurns[player.index]"
                 >
                   {{ t("Passed this turn") }}
                 </div>
                 <div
-                  style="font-family:'Shadows Into Light'; font-size: 18px; font-weight:bold; color: #5f6c7b"
+                  style="font-family:'Paddis Handwritten'; font-size: 18px; font-weight:bold; color: #5f6c7b"
                   v-if="game.guesses && game.guesses[player.index]"
                 >
                   {{ t("Guessed that the murderer was") }}
@@ -152,11 +152,11 @@ export default {
       Game: "Гра",
       "Suspects of the crime:": "Підозрювані:",
       "Passed this turn": "Закінчив хід",
-      "Guessed that the murderer was": "Вгадав що вбивця був",
+      "Guessed that the murderer was": "Припустив що вбивця був",
       "the M.O. was": "знаряддям вбивства було",
       "and the key evidence was": "і ключовим доказом було",
-      Round: "Раунд",
-      of: "",
+      "Round": "Раунд",
+      "of": "з",
       Analysis: "Аналіз",
       "Forensic Scientist": "Судово-медичний експерт",
 	  "Murderer": "Вбивця",
@@ -207,7 +207,7 @@ export default {
   }
   .stamp {
     font-size: 2em;
-    font-family: "kingthings_trypewriter_2Rg";
+    font-family: "DS Moster", "kingthings_trypewriter_2Rg";
     position: absolute;
     width: 100%;
     top: 50%;
@@ -224,14 +224,14 @@ export default {
 .signature {
   display: flex;
   flex-direction: column;
-  font-family: "Shadows Into Light";
+  font-family: "Paddis Handwritten", "Shadows Into Light";
   .sign {
-    font-size: 1.25em;
+    font-size: 1.5em;
     color: #3da9fc;
     letter-spacing: 0;
   }
   .text {
-    font-family: "kingthings_trypewriter_2Rg";
+    font-family: "DS Moster", "kingthings_trypewriter_2Rg";
     font-size: 0.5em;
     line-height: 1.2;
     word-spacing: 5px;
@@ -240,22 +240,23 @@ export default {
 }
 .analysis {
   .type {
-    font-family: "kingthings_trypewriter_2Rg";
+    font-family: "DS Moster", "kingthings_trypewriter_2Rg";
     margin-right: 0.5em;
+	font-size: 1.2em;
   }
   .text {
-    font-family: "Shadows Into Light";
+    font-family: "Paddis Handwritten", "Shadows Into Light";
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 3em;
     color: #3da9fc;
     display: inline-block;
   }
 }
 .finished {
   margin-top: 1em;
-  font-size: 2em;
+  font-size: 3em;
   color: #ff5252;
   font-weight: bold;
-  font-family: "Shadows Into Light";
+  font-family: "Paddis Handwritten";
 }
 </style>

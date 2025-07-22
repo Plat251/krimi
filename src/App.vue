@@ -44,7 +44,7 @@ export default {
   }
   .display-2.display-2 {
     color: $darkblue;
-    letter-spacing: -2px !important;
+    letter-spacing: -1px !important;
     word-spacing: -10px;
   }
   .display-1.display-1 {
