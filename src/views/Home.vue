@@ -62,10 +62,26 @@
           <v-btn
             text
             class="mr-4 mb-4 mb-lg-0"
-            @click.prevent="changeLocale"
+            @click.prevent="changeLocaleToEN"
             type="submit"
             color="accent"
-            >{{ t("Versão em português") }}</v-btn
+            >{{ t("English") }}</v-btn
+          >
+          <v-btn
+            text
+            class="mr-4 mb-4 mb-lg-0"
+            @click.prevent="changeLocaleToPT_BR"
+            type="submit"
+            color="accent"
+            >{{ t("Português ") }}</v-btn
+          >
+          <v-btn
+            text
+            class="mr-4 mb-4 mb-lg-0"
+            @click.prevent="changeLocaleToUK_UA"
+            type="submit"
+            color="accent"
+            >{{ t("Українська") }}</v-btn
           >
         </div>
         <img
@@ -92,11 +108,15 @@ export default {
       );
       this.$router.push("/game/" + game.gameId);
     },
-    changeLocale() {
-      if (this.$translate.lang !== "pt_br") {
-        this.$translate.setLang("pt_br");
-      } else this.$translate.setLang("en");
+    changeLocaleToEN() {
+      this.$translate.setLang("en");
     },
+    changeLocaleToPT_BR() {
+      this.$translate.setLang("pt_br");
+    },
+    changeLocaleToUK_UA() {
+      this.$translate.setLang("uk_ua");
+    }
   },
   locales: {
     pt_br: {
@@ -110,9 +130,22 @@ export default {
       "Join game": "Entrar em um jogo",
       "Create new game": "Criar novo jogo",
       "Versão em português": "English version",
-      "A web-version of Tobey Ho's": "Uma versão web do jogo de Tobey Ho",
+      "A web-version of Tobey Ho's": "Uma versão web do jogo de Tobey Ho"
     },
-  },
+    uk_ua: {
+      "A game of": "Гра",
+      deduction: "дедукції",
+      deception: "обманів",
+      "In the game, players take on the roles of investigators attempting to solve a murder case – but there's a twist. The killer is one of the investigators! Find out who among you can cut through deception to find the truth and who is capable of getting away with murder!":
+        "У цій грі, гравці беруть на себе ролі слідчих та намагаються розкрити вбивство – але не все так просто. Вбивця - серед них! Дізнайтесь хто з вас зможе розпізнати брехню, а хто може уникнути покарання навіть за вбивство!",
+      "About this project": "Про цей проект",
+      "How to play": "Як грати",
+      "Join game": "Приєднатись до гри",
+      "Create new game": "Створити нову гру",
+      "Versão em português": "English version",
+      "A web-version of Tobey Ho's": "Веб-версія гри Тобі Го"
+    }
+  }
 };
 </script>
 

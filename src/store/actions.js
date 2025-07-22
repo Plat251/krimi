@@ -6,6 +6,9 @@ import analysis from "@/data/analysis";
 import meanspt_br from "@/data/means-ptbr";
 import cluespt_br from "@/data/clues-ptbr";
 import analysispt_br from "@/data/analysis-ptbr";
+import meansuk_ua from "@/data/means-ukua";
+import cluesuk_ua from "@/data/clues-ukua";
+import analysisuk_ua from "@/data/analysis-ukua";
 
 import router from "@/router";
 
@@ -56,6 +59,11 @@ export default {
         clues: cluespt_br,
         means: meanspt_br,
         analysis: analysispt_br
+      },
+      uk_ua: {
+        clues: cluesuk_ua,
+        means: meansuk_ua,
+        analysis: analysisuk_ua
       }
     };
     const lang = payload.lang || "en";

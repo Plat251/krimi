@@ -43,6 +43,10 @@ export default {
     pt_br: {
       "You are in room": "Você está na sala",
       "Waiting for the game start.": "Esperando o jogo começar."
+    },
+    uk_ua: {
+      "You are in room": "Ви у грі",
+      "Waiting for the game start.": "Чекаємо на початок гри."
     }
   },
   components: { ForensicAnalysis, Detective },

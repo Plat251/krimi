@@ -96,6 +96,15 @@ export default {
       "as a key evidence.": "como evidência principal.",
       "Ask all the players, but the murderer to close their eyes. As soon as you receive the murderer clues, you can ask them to open their eyes again.":
         "Peça para todos os jogadores, menos o assassino, para fecharem os olhos. Assim que receber as pistas do assassino, você pode pedir que eles abram os olhos novamente."
+    },
+    uk_ua: {
+      "is the murderer. Wait for means of murder and key evidence.":
+        "вбивця. Очікуйте знаряддя вбивства та ключовий доказ.",
+      used: "використав",
+      "to kill, and left behind": "для вбивства, і залишив",
+      "as a key evidence.": "як ключовий доказ.",
+      "Ask all the players, but the murderer to close their eyes. As soon as you receive the murderer clues, you can ask them to open their eyes again.":
+        "Попросіть усіх гравців окрім вбивці закрити очі. Коли отримаєте знаряддя вбивств та ключовий доказ, попросіть їх відкрити очі."
     }
   },
   props: {

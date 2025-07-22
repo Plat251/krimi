@@ -105,6 +105,18 @@ export default {
       "Copy game url": "Copiar url do jogo ",
       "Join game": "Entrar em um jogo",
       "Start game": "Começar jogo"
+    },
+    uk_ua: {
+      "Lobby for room": "Лобі гри",
+      "Waiting for players": "Чекаємо на гравців",
+      "No players joined yet.": "Поки ніхто не приєднався.",
+      "player joined.": "гравець приєднався.",
+      "players joined.": "гравців приєдналось.",
+      "URL Copied": "URL скопійовано",
+      Close: "Закрити",
+      "Copy game url": "Скопіювати URL гри",
+      "Join game": "Приєднатись до гри",
+      "Start game": "Розпочати гру"
     }
   },
   components: { LobbyPlayers },

@@ -77,6 +77,11 @@ export default {
       "Select your means of murder:": "Selecione a causa da morte:",
       "Select your key evidence:": "Selecione a evidência principal:",
       "Send choice": "Enviar escolha"
+    },
+    uk_ua: {
+      "Select your means of murder:": "Оберіть знаряддя вбивства:",
+      "Select your key evidence:": "Оберіть ключовий доказ:",
+      "Send choice": "Надіслати знаряддя та доказ"
     }
   },
   props: {

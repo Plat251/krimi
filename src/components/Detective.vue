@@ -184,6 +184,20 @@ export default {
       "Select the means of murder:": "Selecione a causa de morte",
       "Select the key evidence:": "Selecione a evidência principal",
       "Send guess": "Mandar palpite"
+    },
+    uk_ua: {
+      "the murderer": "вбивця",
+      "a detective": "слідчий",
+      "You are": "Ви",
+      close: "закрити",
+      Role: "Роль",
+      "Pass turn": "Закінчити хід",
+      Solve: "Розкрити",
+      "Solve the crime": "Розкрити вбивство",
+      "Who is the murderer?": "Хто вбивця?",
+      "Select the means of murder:": "Оберіть знаряддя вбивства",
+      "Select the key evidence:": "Оберіть ключовий доказ",
+      "Send guess": "Надіслати здогадку"
     }
   },
   computed: {

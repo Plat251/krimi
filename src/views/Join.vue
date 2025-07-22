@@ -62,6 +62,14 @@ export default {
       "Game code": "Código do jogo",
       "Join game": "Entrar em um jogo",
       "Enter game": "Entrar no jogo"
+    },
+    uk_ua: {
+      "Enter a game code and a nickname to join a game:":
+        "Введіть код гри та нікнейм щоб приєднатись до гри:",
+      "Your nickname": "Ваш нікнейм",
+      "Game code": "Код гри",
+      "Join game": "Приєднатись до гри",
+      "Enter game": "Приєднатись до гри"
     }
   },
   data: () => ({
