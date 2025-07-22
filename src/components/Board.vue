@@ -50,7 +50,7 @@
                   {{ t("Passed this turn") }}
                 </div>
                 <div
-                  style="font-family:'Paddis Handwritten'; font-size: 18px; font-weight:bold; color: #5f6c7b"
+                  style="font-family:'Paddis Handwritten', 'Shadows Into Light'; font-size: 1.8em; font-weight:bold; color: #5f6c7b"
                   v-if="game.guesses && game.guesses[player.index]"
                 >
                   {{ t("Guessed that the murderer was") }}
