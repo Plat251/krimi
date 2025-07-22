@@ -24,11 +24,12 @@
           :players="players"
           @change="changeDetective"
         />
+
         <v-btn
           class="mt-4"
           x-large
           color="accent"
-          :disabled="!players || players.length < 5"
+          :disabled="!players || players.length < 4"
           @click="startGame"
           >{{ t("Start game") }}</v-btn
         >
