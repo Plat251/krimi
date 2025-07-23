@@ -137,7 +137,7 @@ export default {
       deduction: "дедукції",
       deception: "обманів",
       "In the game, players take on the roles of investigators attempting to solve a murder case – but there's a twist. The killer is one of the investigators! Find out who among you can cut through deception to find the truth and who is capable of getting away with murder!":
-        "У цій грі, гравці беруть на себе ролі слідчих та намагаються розкрити вбивство – але не все так просто. Вбивця - серед них! Дізнайтесь хто з вас зможе розпізнати брехню, а хто може уникнути покарання навіть за вбивство!",
+        "У цій грі гравці беруть на себе ролі слідчих та намагаються розкрити вбивство – але не все так просто. Вбивця - серед них! Дізнайтесь хто з вас зможе розпізнати брехню, а хто може уникнути покарання навіть за вбивство!",
       "About this project": "Про цей проект",
       "How to play": "Як грати",
       "Join game": "Приєднатись до гри",
