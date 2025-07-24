@@ -31,8 +31,9 @@
           rounded
           color="accent"
         ></v-progress-linear>
-        <lobby-players
+        <lobby-players 
           v-if="players"
+		  :active="this.active"
           :game="game"
           :players="players"
           @change="changeDetective"
@@ -160,13 +161,24 @@ export default {
         return `${this.players.length} ${this.t("player joined.")}`;
       else return `${this.players.length} ${this.t("players joined.")}`;
     },
+	detective() {
+		return this.active;
+	},
     meansCluesPerPlayer() {
       return document.getElementById("means_clues_per_player").value;
     }
   },
   methods: {
-    changeDetective(evt) {
+    async changeDetective(evt) {
       this.active = evt;
+	  this.$store.dispatch("setDetective", {
+        game: this.game.gamekey,
+        player: this.active
+      })
+	  await this.$store.dispatch("setDetective", {
+        game: this.game.gamekey,
+        player: this.active
+      })
     },
     async startGame() {
       await this.$store.dispatch("startGame", {
@@ -184,7 +196,8 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch("loadGame", this.$route.params.id);
+    await this.$store.dispatch("loadGame", this.$route.params.id);;
+	this.changeDetective(this.$store.state.game.detective);
     this.$translate.setLang(this.game.lang);
   }
 };

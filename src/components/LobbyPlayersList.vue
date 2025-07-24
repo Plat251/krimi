@@ -2,7 +2,6 @@
   <v-card class="mt-4">
     <v-slide-y-transition group>
       <v-list-item
-        two-line
         v-for="(player, index) in players"
         :key="player.playerkey"
       >
@@ -11,6 +10,11 @@
             index + 1 + ". " + player.name
           }}</v-list-item-title>
         </v-list-item-content>
+		<v-list-item-action>
+            <v-icon v-if="index === active" color="secondary">
+				mdi-police-badge
+			</v-icon>
+        </v-list-item-action>
       </v-list-item>
     </v-slide-y-transition>
   </v-card>
@@ -30,8 +34,27 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    changeDetective(evt) {
+      this.active = evt;
+    },
+  },
+  computed: {
+	detective() {
+		return this.$store.state.game.detective;
+	},
+  },
+  watch: {
+	detective() {
+		this.active = this.$store.state.game.detective
+	},
+  },
+  async mounted() {
+	this.$store.dispatch("loadGame", this.$route.params.id);
+	this.changeDetective(this.detective);
+    },
   }
-};
 </script>
 
 <style lang="scss" scoped></style>
