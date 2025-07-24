@@ -73,7 +73,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col class="mt-6" cols="12" v-if="game.murdererChoice">
+        <v-col class="mt-6 text-center" cols="12" v-if="game.murdererChoice">
           <v-btn
             @click="sendAnalysis"
             x-large

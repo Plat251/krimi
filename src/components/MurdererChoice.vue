@@ -56,7 +56,7 @@
         </v-card-text>
       </v-card>
     </v-col>
-    <v-col class="mt-2" cols="12" v-if="!game.murdererChoice">
+    <v-col class="mt-2 text-center" cols="12" v-if="!game.murdererChoice">
       <v-btn
         @click="sendChoice"
         :disabled="!murdererChoice.mean || !murdererChoice.key"
