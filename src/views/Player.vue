@@ -15,6 +15,9 @@
             <code class="accent--text text-uppercase">{{ game.gameId }}</code
             >. {{ t("Waiting for the game start.") }}
           </p>
+		  <lobby-players-list
+		  :game="game"
+          :players="players" />
           <v-progress-linear
             indeterminate
             rounded
@@ -36,6 +39,7 @@
 </template>
 
 <script>
+import LobbyPlayersList from "@/components/LobbyPlayersList";
 import ForensicAnalysis from "@/components/ForensicAnalysis";
 import Board from "@/components/Board";
 import Detective from "@/components/Detective";
@@ -51,14 +55,20 @@ export default {
       "Waiting for the game start.": "Чекаємо на початок гри."
     }
   },
-  components: { ForensicAnalysis, Board, Detective },
+  components: { LobbyPlayersList, ForensicAnalysis, Board, Detective },
   computed: {
     game() {
       return this.$store.state.game;
     },
     player() {
       return this.$store.state.player;
-    }
+    },
+	players() {
+      if (!this.game || !this.game.players) return false;
+      return Object.keys(this.game.players).map(
+        item => this.game.players[item]
+      )
+	},
   },
   methods: {},
   async mounted() {
