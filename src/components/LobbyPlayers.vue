@@ -17,7 +17,7 @@
         <v-list-item-action>
           <v-btn icon @click="makeDetective(index)">
             <v-icon :color="index === active ? 'secondary' : 'gray'"
-              >mdi-police-badge</v-icon
+              >mdi-microscope</v-icon
             >
           </v-btn>
         </v-list-item-action>

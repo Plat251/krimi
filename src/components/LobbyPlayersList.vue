@@ -12,7 +12,7 @@
         </v-list-item-content>
 		<v-list-item-action>
             <v-icon v-if="index === active" color="secondary">
-				mdi-police-badge
+				mdi-microscope
 			</v-icon>
         </v-list-item-action>
       </v-list-item>
