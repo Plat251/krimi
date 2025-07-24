@@ -1,5 +1,5 @@
 <template>
-  <v-container style="height:100%">
+  <v-container>
     <v-row style="height:100%" align="center">
       <v-col md="9">
         <v-row>
@@ -31,10 +31,12 @@
                 )}deg)`
               }"
             >
-              <span class="red--text" v-if="game.murderer === player.index"
-                >{{ t("Murderer") }}</span
-              >
-              <span v-if="game.murderer !== player.index">{{ t("Detective") }}</span>
+              <span class="red--text" v-if="game.murderer === player.index">{{
+                t("Murderer")
+              }}</span>
+              <span v-if="game.murderer !== player.index">{{
+                t("Detective")
+              }}</span>
             </div>
             <v-card
               :style="{
@@ -53,12 +55,17 @@
                   style="font-family:'Paddis Handwritten', 'Shadows Into Light'; font-size: 1.8em; font-weight:bold; color: #5f6c7b"
                   v-if="game.guesses && game.guesses[player.index]"
                 >
+                  <v-divider class="my-2" />
                   {{ t("Guessed that the murderer was") }}
                   {{ players[game.guesses[player.index].player].name }},
                   {{ t("the M.O. was") }}
-                  {{ game.guesses[player.index].mean }}
+                  <span class="red--text">{{
+                    game.guesses[player.index].mean
+                  }}</span>
                   {{ t("and the key evidence was") }}
-                  {{ game.guesses[player.index].key }}
+                  <span class="blue--text">{{
+                    game.guesses[player.index].key
+                  }}</span>
                 </div>
                 <v-divider class="my-2" />
 
@@ -66,10 +73,10 @@
                   <v-chip
                     small
                     color="red lighten-4"
-
                     v-for="(mean, index) in [...game.means].slice(
                       player.index * game.meansCluesPerPlayer,
-                      player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
+                      player.index * game.meansCluesPerPlayer +
+                        Number(game.meansCluesPerPlayer)
                     )"
                     :key="index"
                     >{{ mean }}</v-chip
@@ -81,7 +88,8 @@
                     color="blue lighten-4"
                     v-for="(mean, index) in [...game.clues].slice(
                       player.index * game.meansCluesPerPlayer,
-                      player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
+                      player.index * game.meansCluesPerPlayer +
+                        Number(game.meansCluesPerPlayer)
                     )"
                     :key="'clue' + index"
                     >{{ mean }}</v-chip
@@ -92,12 +100,12 @@
           </v-col>
           <v-col cols="12">
             <div v-if="game.finished">
-				<div class="finished" v-if="game.winner == 'murderer'">
-					{{ t("The game is finished. The murderer won!") }}
-				</div>
-				<div class="finished" v-if="game.winner == 'detectives'">
-					{{ t("The game is finished. The detectives won!") }}
-				</div>
+              <div class="finished" v-if="game.winner == 'murderer'">
+                {{ t("The game is finished. The murderer won!") }}
+              </div>
+              <div class="finished" v-if="game.winner == 'detectives'">
+                {{ t("The game is finished. The detectives won!") }}
+              </div>
             </div>
           </v-col>
         </v-row>
@@ -155,14 +163,16 @@ export default {
       "Guessed that the murderer was": "Припустив що вбивця був",
       "the M.O. was": "знаряддям вбивства було",
       "and the key evidence was": "і ключовим доказом було",
-      "Round": "Раунд",
-      "of": "з",
+      Round: "Раунд",
+      of: "з",
       Analysis: "Аналіз",
       "Forensic Scientist": "Судово-медичний експерт",
-	  "Murderer": "Вбивця",
-	  "Detective": "Слідчий",
-	  "The game is finished. The murderer won!": "Гру завершено. Перемога за вбивцею!",
-	  "The game is finished. The detectives won!": "Гру завершено. Перемога слідчих!", 
+      Murderer: "Вбивця",
+      Detective: "Слідчий",
+      "The game is finished. The murderer won!":
+        "Гру завершено. Перемога за вбивцею!",
+      "The game is finished. The detectives won!":
+        "Гру завершено. Перемога слідчих!"
     }
   },
   computed: {
@@ -242,12 +252,12 @@ export default {
   .type {
     font-family: "DS Moster", "kingthings_trypewriter_2Rg";
     margin-right: 0.5em;
-	font-size: 1.2em;
+    font-size: 1.2em;
   }
   .text {
     font-family: "Paddis Handwritten", "Shadows Into Light";
     font-weight: bold;
-    font-size: 3em;
+    font-size: 2em;
     color: #3da9fc;
     display: inline-block;
   }

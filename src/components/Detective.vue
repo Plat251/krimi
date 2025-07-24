@@ -1,36 +1,12 @@
 <template>
-  <v-row style="height:100%" direction="column" justify="center">
+  <v-row direction="column" justify="center">
     <v-col class="mt-10" cols="12" md="6">
       <v-card>
         <v-card-text>
           <h2 class="display-2 mb-4">{{ player.name }}</h2>
           <v-divider class="my-2" />
-          <v-chip-group column>
-            <v-chip
-              small
-              color="red lighten-4"
-              v-for="(mean, index) in [...game.means].slice(
-				  player.index * game.meansCluesPerPlayer,
-				  player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
-              )"
-              :key="index"
-              >{{ mean }}</v-chip
-            >
-          </v-chip-group>
-          <v-chip-group column>
-            <v-chip
-              small
-              color="blue lighten-4"
-              v-for="(mean, index) in [...game.clues].slice(
-				  player.index * game.meansCluesPerPlayer,
-				  player.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
-              )"
-              :key="'clue' + index"
-              >{{ mean }}</v-chip
-            >
-          </v-chip-group>
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions class="pb-8">
           <v-btn @click="sheet = !sheet" text>{{ t("Role") }}</v-btn>
           <v-btn @click="passTurn" :disabled="disableActions" text>{{
             t("Pass turn")
@@ -45,8 +21,8 @@
         </v-card-actions>
       </v-card>
     </v-col>
-    <v-bottom-sheet inset v-model="sheet">
-      <v-sheet class="text-center" height="600px">
+    <v-bottom-sheet inset v-model="sheet" height="100%">
+      <v-sheet class="text-center">
         <v-container>
           <v-btn class="mt-6" dark @click="sheet = !sheet">{{
             t("close")
@@ -98,7 +74,8 @@
                           color="blue lighten-4"
                           v-for="(mean, index) in [...game.means].slice(
                             selectedPlayer.index * game.meansCluesPerPlayer,
-                            selectedPlayer.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
+                            selectedPlayer.index * game.meansCluesPerPlayer +
+                              Number(game.meansCluesPerPlayer)
                           )"
                           :key="index"
                         >
@@ -122,7 +99,8 @@
                           color="red lighten-4"
                           v-for="(clue, index) in [...game.clues].slice(
                             selectedPlayer.index * game.meansCluesPerPlayer,
-                            selectedPlayer.index * game.meansCluesPerPlayer + Number(game.meansCluesPerPlayer),
+                            selectedPlayer.index * game.meansCluesPerPlayer +
+                              Number(game.meansCluesPerPlayer)
                           )"
                           :key="index"
                         >

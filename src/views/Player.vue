@@ -25,6 +25,7 @@
         </div>
       </v-col>
     </v-row>
+    <board v-else-if="game && game.started" />
     <forensic-analysis
       v-if="game.started && player.index === game.detective"
       :game="game"
@@ -36,6 +37,7 @@
 
 <script>
 import ForensicAnalysis from "@/components/ForensicAnalysis";
+import Board from "@/components/Board";
 import Detective from "@/components/Detective";
 export default {
   name: "Player",
@@ -49,7 +51,7 @@ export default {
       "Waiting for the game start.": "Чекаємо на початок гри."
     }
   },
-  components: { ForensicAnalysis, Detective },
+  components: { ForensicAnalysis, Board, Detective },
   computed: {
     game() {
       return this.$store.state.game;

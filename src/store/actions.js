@@ -23,7 +23,7 @@ export default {
       detective: 0,
       gamekey,
       finished: false,
-	  meansCluesPerPlayer: 4,
+      meansCluesPerPlayer: 4,
       availableClues: 6,
       round: 1,
       lang: payload
@@ -68,19 +68,19 @@ export default {
       }
     };
     const lang = payload.lang || "en";
-	
-	const meansCluesPerPlayer = payload.meansCluesPerPlayer;
+
+    const meansCluesPerPlayer = payload.meansCluesPerPlayer;
     await database.ref("/" + payload.game).update({
       meansCluesPerPlayer: meansCluesPerPlayer
     });
-	
+
     const gameMeans = rules.getRandom(
       gameclues[lang].means,
-      payload.players.length * meansCluesPerPlayer,
+      payload.players.length * meansCluesPerPlayer
     );
     const gameClues = rules.getRandom(
       gameclues[lang].clues,
-      payload.players.length * meansCluesPerPlayer,
+      payload.players.length * meansCluesPerPlayer
     );
     const analysisCause = gameclues[lang].analysis.filter(
       item => item.type === 0
@@ -103,7 +103,6 @@ export default {
       };
       iterate++;
     }
-
 
     const startedGame = {
       started: true,

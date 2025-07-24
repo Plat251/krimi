@@ -1,36 +1,44 @@
 <template>
-  <v-row style="height:100%" align="center" justify="center">
+  <v-row align="center" justify="center">
     <v-col
       cols="12"
       lg="6"
       style="margin-top:auto;"
       :style="[!game.murdererChoice && 'margin-bottom:auto']"
     >
-      <h2 class="display-2 mb-4">{{ player.name }}</h2>
-      <div class="display-1" v-if="game.murdererChoice">
-        {{ murderer.name }} {{ t("used") }}
-        <span class="blue--text"
-          >&nbsp;&nbsp;{{ game.murdererChoice.mean }}</span
-        >
-        {{ t("to kill, and left behind") }}
-        <span class="red--text">&nbsp;&nbsp;{{ game.murdererChoice.key }}</span>
-        {{ t("as a key evidence.") }}
-      </div>
-      <v-card v-else>
-        <v-card-title style="word-break: inherit"
-          >{{ murderer.name }}
-          {{
-            t("is the murderer. Wait for means of murder and key evidence.")
-          }}</v-card-title
-        >
+      <v-card>
         <v-card-text>
-          {{
-            t(
-              "Ask all the players, but the murderer to close their eyes. As soon as you receive the murderer clues, you can ask them to open their eyes again."
-            )
-          }}
+          <h2 class="display-2 mb-4">{{ player.name }}</h2>
+          <v-divider class="my-2" />
         </v-card-text>
+        <div class="pl-4 pr-4 pb-6 analysis" v-if="game.murdererChoice">
+          <span class="text">
+            {{ murderer.name }} {{ t("used") }}
+            <span class="red--text">{{ game.murdererChoice.mean }}</span>
+            {{ t("to kill, and left behind") }}
+            <span class="blue--text">{{ game.murdererChoice.key }}</span>
+            {{ t("as a key evidence.") }}
+          </span>
+        </div>
+        <div v-else>
+          <div class="analysis">
+            <v-card-title class="type" style="word-break: inherit"
+              >{{ murderer.name }}
+              {{
+                t("is the murderer. Wait for means of murder and key evidence.")
+              }}</v-card-title
+            >
+          </div>
+          <v-card-text>
+            {{
+              t(
+                "Ask all the players, but the murderer to close their eyes. As soon as you receive the murderer clues, you can ask them to open their eyes again."
+              )
+            }}
+          </v-card-text>
+        </div>
       </v-card>
+
       <v-progress-linear
         v-if="!game.murdererChoice"
         indeterminate
@@ -74,7 +82,7 @@
                 (game.forensicAnalysis &&
                   game.forensicAnalysis.length === availableClues.length)
             "
-            >Send analysis</v-btn
+            >{{ t("Send analysis") }}</v-btn
           >
         </v-col>
       </v-row>
@@ -104,7 +112,8 @@ export default {
       "to kill, and left behind": "для вбивства, і залишив",
       "as a key evidence.": "як ключовий доказ.",
       "Ask all the players, but the murderer to close their eyes. As soon as you receive the murderer clues, you can ask them to open their eyes again.":
-        "Попросіть усіх гравців окрім вбивці закрити очі. Коли отримаєте знаряддя вбивств та ключовий доказ, попросіть їх відкрити очі."
+        "Попросіть усіх гравців окрім вбивці закрити очі. Коли отримаєте знаряддя вбивств та ключовий доказ, попросіть їх відкрити очі.",
+      "Send analysis": "Надіслати аналіз"
     }
   },
   props: {
@@ -146,4 +155,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.analysis {
+  .type {
+    font-family: "DS Moster", "kingthings_trypewriter_2Rg";
+    margin-right: 0.5em;
+    font-size: 1.2em;
+  }
+  .text {
+    font-family: "Paddis Handwritten", "Shadows Into Light";
+    font-weight: bold;
+    font-size: 2em;
+    display: inline-block;
+  }
+}
+</style>
