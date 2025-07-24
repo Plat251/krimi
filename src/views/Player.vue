@@ -5,7 +5,6 @@
       style="height:100%"
       align="center"
       justify="center"
-      class="mt-10"
     >
       <v-col cols="12" lg="6">
         <div v-if="!game.started">
