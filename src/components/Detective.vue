@@ -1,6 +1,6 @@
 <template>
   <v-row direction="column" justify="center">
-    <v-col class="mt-10" cols="12" md="6">
+    <v-col class="mt-16" cols="12" md="6">
       <v-card>
         <v-card-text>
           <h2 class="display-2 mb-4">{{ player.name }}</h2>

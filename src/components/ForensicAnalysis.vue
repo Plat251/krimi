@@ -3,7 +3,7 @@
     <v-col
       cols="12"
       lg="6"
-      style="margin-top:auto;"
+      class="mt-16"
       :style="[!game.murdererChoice && 'margin-bottom:auto']"
     >
       <v-card>
