@@ -106,6 +106,15 @@
               <div class="finished" v-if="game.winner == 'detectives'">
                 {{ t("The game is finished. The detectives won!") }}
               </div>
+			  <div class="reveal">
+			    {{ t("The murderer") }}
+				<span class="red--text">{{ murderer.name }}</span>
+				{{ t("used") }}
+				<span class="red--text">{{ game.murdererChoice.mean }}</span>
+				{{ t("and left behind") }}
+				<span class="blue--text">{{ this.game.murdererChoice.key }}</span>
+				{{ t("as key evidence!") }}
+			  </div>
             </div>
           </v-col>
         </v-row>
@@ -172,7 +181,11 @@ export default {
       "The game is finished. The murderer won!":
         "Гру завершено. Перемога за вбивцею!",
       "The game is finished. The detectives won!":
-        "Гру завершено. Перемога слідчих!"
+        "Гру завершено. Перемога слідчих!",
+	  "The murderer": "Вбивця",
+	  "used": "використав",
+	  "and left behind": "і залишив",
+	  "as key evidence!": "як ключовий доказ!",
     }
   },
   computed: {
@@ -187,6 +200,12 @@ export default {
     },
     suspects() {
       return this.players.filter(item => item.index !== this.game.detective);
+    },
+	murderer() {
+      const key = Object.keys(this.game.players).find(
+        item => this.game.players[item].index === this.game.murderer
+      );
+      return this.game.players[key];
     }
   },
   mounted() {
@@ -266,6 +285,11 @@ export default {
   margin-top: 1em;
   font-size: 3em;
   color: #ff5252;
+  font-weight: bold;
+  font-family: "Paddis Handwritten";
+}
+.reveal {
+  font-size: 2em;
   font-weight: bold;
   font-family: "Paddis Handwritten";
 }
