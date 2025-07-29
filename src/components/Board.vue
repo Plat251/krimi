@@ -117,6 +117,13 @@
 			  </div>
             </div>
           </v-col>
+		  <v-btn v-if="!player"
+                class="mb-4"
+                x-large
+                color="accent"
+				@click="startGame"
+                >{{ t("Restart game") }}
+		  </v-btn>
         </v-row>
       </v-col>
       <v-col md="3">
@@ -186,7 +193,11 @@ export default {
 	  "used": "використав",
 	  "and left behind": "і залишив",
 	  "as key evidence!": "як ключовий доказ!",
-    }
+	  "Restart game": "Почати наново",
+    },
+  },
+  props: {
+    player: Object,
   },
   computed: {
     game() {
@@ -206,6 +217,18 @@ export default {
         item => this.game.players[item].index === this.game.murderer
       );
       return this.game.players[key];
+    }
+  },
+  methods: {
+    async startGame() {
+      await this.$store.dispatch("startGame", {
+  	  game: this.game.gamekey,
+	  playersObj: this.game.players,
+	  players: this.players,
+	  meansCluesPerPlayer: this.game.meansCluesPerPlayer,
+	  detective: this.game.detective,
+	  lang: this.$translate.lang,
+      })
     }
   },
   mounted() {

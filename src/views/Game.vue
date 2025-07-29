@@ -1,6 +1,8 @@
 <template>
-  <lobby v-if="game && !game.started" />
-  <board v-else-if="game && game.started" />
+  <v-container style="height:100%">
+	  <lobby v-if="game && !game.started" />
+	  <board v-else-if="game && game.started" />
+  </v-container>
 </template>
 
 <script>

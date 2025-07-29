@@ -203,7 +203,10 @@ export default {
     },
     selectedPlayer() {
       return this.players.find(item => item.index === this.guess.player);
-    }
+    },
+	finished() {
+      return this.game.finished;
+	},
   },
   methods: {
     async passTurn() {
@@ -220,7 +223,14 @@ export default {
       });
       this.solve = false;
     }
-  }
+  },
+  watch: {
+    finished() {
+	  if (this.game.finished == false) {
+	    this.sheet = true;
+	  }
+	},
+  },
 };
 </script>
 

@@ -27,7 +27,7 @@
         </div>
       </v-col>
     </v-row>
-    <board v-else-if="game && game.started" />
+    <board :player="player" v-else-if="game && game.started" />
     <forensic-analysis
       v-if="game.started && player.index === game.detective"
       :game="game"

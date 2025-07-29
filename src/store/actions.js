@@ -110,7 +110,12 @@ export default {
       clues: gameClues,
       players,
       analysis: [...analysisCause, ...analysisLocation, ...analysisOther],
-      murderer: rules.chooseRandomMurderer(payload.players, payload.detective)
+	  forensicAnalysis: null,
+      murderer: rules.chooseRandomMurderer(payload.players, payload.detective),
+	  murdererChoice: null,
+	  passedTurns: null,
+	  guesses: null,
+	  finished: false,
     };
     await database.ref("/" + payload.game).update(startedGame);
   },
