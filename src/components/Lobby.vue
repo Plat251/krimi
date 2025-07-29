@@ -146,7 +146,7 @@ export default {
       return this.$store.state.game;
     },
     location() {
-      return `${window.location.origin}${process.env.BASE_URL}join?room=${this.game.gameId}`;
+      return `${window.location.origin}${process.env.BASE_URL}join?room=${this.game.gameId}&lang=${this.game.lang}`;
     },
     players() {
       if (!this.game || !this.game.players) return false;

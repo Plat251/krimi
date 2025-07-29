@@ -108,16 +108,18 @@ export default {
 			let c = cookie[i].split("=");
 			if (c[0] === "nickname") {
 				this.nickname = c[1];
-			};
-		};
-	},
-	check_localization() {
+			}
+		}
 	},
   },
   mounted() {
+	this.read_nickname();
     if (this.$route.query.room) {
       this.gameId = this.$route.query.room;
-	  this.read_nickname();
+	  this.$store.dispatch("loadGame", this.gameId);
+	}
+	if (this.$route.query.lang) {
+	  this.$translate.setLang(this.$route.query.lang);
     }
   }
 };
