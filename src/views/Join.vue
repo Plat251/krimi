@@ -23,12 +23,14 @@
             </v-col>
             <v-col cols="12" md="6">
               <v-text-field
+			    id="nicknameInput"
                 width="100%"
                 v-model="nickname"
                 :label="t('Your nickname')"
                 hide-details="auto"
                 filled
                 required
+				autocomplete="nickname"
               ></v-text-field>
             </v-col>
             <v-col class="d-lg-flex" cols="12" md="6">
@@ -94,11 +96,28 @@ export default {
         this.errorText = errorText;
         this.disabled = false;
       }
-    }
+	  this.store_nickname();
+    },
+	store_nickname() {
+	  let expiry = new Date((Date.now() + 1000 * 60 * 60 * 24 * 365)).toUTCString();
+	  document.cookie = "nickname=" + this.nickname + "; expires=" + expiry;
+	},
+	read_nickname() {
+		let cookie = decodeURIComponent(document.cookie).split(";");
+		for (let i = 0; i < cookie.length; i++) {
+			let c = cookie[i].split("=");
+			if (c[0] === "nickname") {
+				this.nickname = c[1];
+			};
+		};
+	},
+	check_localization() {
+	},
   },
   mounted() {
     if (this.$route.query.room) {
       this.gameId = this.$route.query.room;
+	  this.read_nickname();
     }
   }
 };
