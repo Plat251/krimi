@@ -78,7 +78,7 @@
             @click="sendAnalysis"
             x-large
             :disabled="
-              analysis.filter(item => item != null).length < availableClues.length ||
+              analysis.length < availableClues.length ||
                 (game.forensicAnalysis &&
                   game.forensicAnalysis.length === availableClues.length)
             "
