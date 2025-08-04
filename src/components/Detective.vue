@@ -71,7 +71,7 @@
                           style="opacity: 1"
                           :class="{ 'v-chip--active': guess.mean === mean }"
                           @click="guess.mean = mean"
-                          color="blue lighten-4"
+                          color="red lighten-4"
                           v-for="(mean, index) in [...game.means].slice(
                             selectedPlayer.index * game.meansCluesPerPlayer,
                             selectedPlayer.index * game.meansCluesPerPlayer +
@@ -96,7 +96,7 @@
                           style="opacity: 1"
                           :class="{ 'v-chip--active': guess.key === clue }"
                           @click="guess.key = clue"
-                          color="red lighten-4"
+                          color="blue lighten-4"
                           v-for="(clue, index) in [...game.clues].slice(
                             selectedPlayer.index * game.meansCluesPerPlayer,
                             selectedPlayer.index * game.meansCluesPerPlayer +

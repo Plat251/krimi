@@ -106,6 +106,7 @@ export default {
 
     const startedGame = {
       started: true,
+	  round: 1,
       means: gameMeans,
       clues: gameClues,
       players,
@@ -206,7 +207,6 @@ export default {
         validGuesses.length + playersPassed.length === players - 1
           ? new Array(players).fill(false)
           : game.passedTurns;
-      console.log(validGuesses, playersPassed, players);
       await database.ref(`/${payload.game}`).update({
         passedTurns: clearPass,
         availableClues: newClues,
