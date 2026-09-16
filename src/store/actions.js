@@ -167,8 +167,9 @@ export default {
     const validGuesses =
       (game.guesses && game.guesses.filter(item => item.key)) || [];
     const playersPassed =
-      (game.passedTurns && game.passedTurns.filter(item => item === true)) ||
+      (game.passedTurns && game.passedTurns.filter(item => item === true))||
       [];
+
     if (
       game.guesses &&
       game.guesses.filter(
@@ -188,8 +189,9 @@ export default {
       });
     } else if (
       game.round === 3 &&
-      validGuesses.length + playersPassed.length === players.length - 1
+      validGuesses.length + playersPassed.length === players - 1
     ) {
+      console.log()
       await database.ref(`/${payload.game}`).update({
         finished: true,
         winner: "murderer"
